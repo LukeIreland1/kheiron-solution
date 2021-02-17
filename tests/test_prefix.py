@@ -1,4 +1,4 @@
-import prefix
+from src import prefix
 
 input1 = "3"
 answer1 = 3
@@ -27,3 +27,5 @@ assert prefix.run(input6) == answer6
 input7 = "/ 3 2"
 answer7 = 1.5
 assert prefix.run(input7) == answer7
+
+print("Prefix test success")
