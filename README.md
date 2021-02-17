@@ -32,5 +32,6 @@ Run web client with:
 Run web server with:
     `./run_server.sh`
 
-Note: Developed and tested on Mac OS 11.2.1, using Python 3.9.1 and zsh version 5.8
-I imagine any Unix platform with Python 3 (and pip) installed will be fine
+Notes: 
+- Developed and tested on Mac OS 11.2.1, using Python 3.9.1 and zsh version 5.8.
+- I imagine any Unix platform with Python 3 (and pip) installed will be fine
