@@ -40,7 +40,6 @@ def run(text):
 
 
 def main():
-    print(__name__)
     while True:
         text = input("> ")
         print(run(text))
