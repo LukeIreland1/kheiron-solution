@@ -12,19 +12,13 @@ def execute(left, op, right):
         return left / right
 
 
-stack = []
-
-
 def calc(args):
-    for arg in args:
-        if arg in ops:
-            stack.append(
-                execute(stack.pop(), arg, stack.pop())
-            )
-        else:
-            stack.append(float(arg))
-    return stack.pop()
-
+    arg = args.pop()
+    if arg in ops:
+        left = calc(args)
+        right = calc(args)
+        return execute(left, arg, right)
+    return float(arg)
 
 def run(text):
     args = [arg for arg in text.split() if arg]

@@ -1,5 +1,5 @@
 from flask import Flask, json, jsonify, request
-from src import infix, prefix
+from . import infix, prefix
 app = Flask(__name__)
 
 

@@ -2,7 +2,7 @@ from src import prefix
 
 input1 = "3"
 answer1 = 3
-assert prefix.run(input1) == answer1
+assert prefix.run(input1) == answer1, "{} != {}".format(input1, answer1)
 
 input2 = "+ 1 2"
 answer2 = 3

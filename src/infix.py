@@ -12,30 +12,36 @@ def execute(right, op, left):
         return left / right
 
 
-operand_stack = []
-operator_stack = []
+def convert(args):
+    postfix = []
+    stack = []
+    for arg in args:
+        if arg in ops:
+            stack.append(arg)
+        elif arg == "(":
+            stack.append(arg)
+        elif arg == ")":
+            top = stack.pop()
+            while top != "(":
+                postfix.append(top)
+                top = stack.pop()
+        else:
+            postfix.append(arg)
+    return postfix
 
 
 def calc(args):
-    for arg in args:
-        if arg in ops:
-            operator_stack.append(arg)
-        elif arg == "(":
-            operator_stack.append(arg)
-        elif arg == ")":
-            operand_stack.append(
-                execute(
-                    operand_stack.pop(), operator_stack.pop(), operand_stack.pop()
-                )
-            )
-            operator_stack.pop()
-        else:
-            operand_stack.append(float(arg))
-    return operand_stack.pop()
+    arg = args.pop()
+    if arg in ops:
+        left = calc(args)
+        right = calc(args)
+        return execute(left, arg, right)
+    return float(arg)
 
 
 def run(text):
     args = [arg for arg in text.split() if arg]
+    args = convert(args)
     return calc(args)
 
 
